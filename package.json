@@ -3,6 +3,7 @@
     "express": "^4.18.2",
     "mqtt": "^4.3.7",
     "sqlite3": "^5.1.6"
+    
   },
   "name": "sqllitemqtt",
   "version": "1.0.0",
