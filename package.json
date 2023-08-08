@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "14": "^3.1.6",
     "express": "^4.18.2",
     "mqtt": "^4.3.7",
     "sqlite3": "https://github.com/tryghost/node-sqlite3/tarball/master"
