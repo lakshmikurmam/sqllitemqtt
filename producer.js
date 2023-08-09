@@ -11,7 +11,7 @@ client.on('connect', () => {
 
   // Sample sensor data
   const data = {
-    device_id: 'sensor001',
+    device_id: 'sensor002',
     value: Math.random() * 100,
     timestamp: new Date().toISOString(),
   };

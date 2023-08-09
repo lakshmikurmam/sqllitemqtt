@@ -20,7 +20,7 @@ const db = new sqlite3.Database('data.db', (err) => {
 client.on('message', (topic, message) => {
   try {
     const data = JSON.parse(message);
-
+    console.log(data);
     // Store the data in the SQLite database
     db.run('INSERT INTO sensor_data (device_id, value, timestamp) VALUES (?, ?, ?)', [data.device_id, data.value, data.timestamp], (err) => {
       if (err) {
