@@ -2,7 +2,7 @@ const mqtt = require('mqtt');
 const sqlite3 = require('sqlite3').verbose();
 
 const MQTT_BROKER_URL = 'mqtt://test.mosquitto.org:1883';
-const TOPIC = 'sensor_data';
+const TOPIC = 'MC/V1/AUT/au1/OSPMS/GEN/E0009/Status_Plant_Remote';
 
 // Connect to MQTT broker
 const client = mqtt.connect(MQTT_BROKER_URL);
@@ -22,7 +22,7 @@ client.on('message', (topic, message) => {
     const data = JSON.parse(message);
     console.log(data);
     // Store the data in the SQLite database
-    db.run('INSERT INTO sensor_data (device_id, value, timestamp) VALUES (?, ?, ?)', [data.device_id, data.value, data.timestamp], (err) => {
+    db.run('INSERT INTO Message (value, timestamp) VALUES ( ?, ?)', [data.value, data.timestamp], (err) => {
       if (err) {
         console.error('Error inserting data into the database:', err.message);
       } else {

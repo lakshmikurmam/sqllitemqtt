@@ -1,7 +1,7 @@
 const mqtt = require('mqtt');
 
 const MQTT_BROKER_URL = 'mqtt://test.mosquitto.org:1883'; // Change this to your MQTT broker URL
-const TOPIC = 'sensor_data';
+const TOPIC = 'MC/V1/AUT/au1/OSPMS/GEN/E0009/Status_Plant_Remote';
 
 // Connect to MQTT broker
 const client = mqtt.connect(MQTT_BROKER_URL);
@@ -11,8 +11,7 @@ client.on('connect', () => {
 
   // Sample sensor data
   const data = {
-    device_id: 'sensor002',
-    value: Math.random() * 100,
+    value: 'sensor008',
     timestamp: new Date().toISOString(),
   };
 
