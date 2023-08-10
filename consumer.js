@@ -1,12 +1,15 @@
 const mqtt = require('mqtt');
 const sqlite3 = require('sqlite3').verbose();
-
-const MQTT_BROKER_URL = 'mqtt://test.mosquitto.org:1883';
+const username = "gepc-subs";
+    const password = "14d1b530";
+    const clientId = "f44a7c6a-219f-417d-9a1d-f2bafd38ad53";
+    const host = "10.246.0.10:1883";
+const MQTT_BROKER_URL1 = 'mqtt://test.mosquitto.org:1883';
 const TOPIC = 'MC/V1/AUT/au1/OSPMS/GEN/E0009/Status_Plant_Remote';
-
+const MQTT_BROKER_URL='mqtt://${this.username}:${this.password}@${this.host}'
 // Connect to MQTT broker
+const client1 = mqtt.connect(MQTT_BROKER_URL);
 const client = mqtt.connect(MQTT_BROKER_URL);
-
 // Connect to SQLite database
 const db = new sqlite3.Database('data.db', (err) => {
   if (err) {
